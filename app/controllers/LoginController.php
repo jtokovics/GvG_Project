@@ -1,17 +1,21 @@
 <?php
 
-class LoginController
-{
-    public function login()
-    {
+namespace App\Controllers;
+
+use App\Core\Database;
+use App\Models\User;
+
+class LoginController{
+    public function login(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $login = $_POST['login'];
             $password = $_POST['password'];
 
-            $userModel = new User();
+            $db = Database::getConnection();
+            $userModel = new User($db);
             $user = $userModel->findByUsernameOrEmail($login);
 
-            if($user && password_verity($password, $user['password'])){
+            if($user && password_verify($password, $user['password'])){
                 session_start();
                 $_SESSION['user'] = $user['id'];
 

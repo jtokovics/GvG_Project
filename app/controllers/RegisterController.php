@@ -4,15 +4,12 @@ namespace App\Controllers;
 
 use App\Models\User;
 
-class RegisterController
-{
-    public function index()
-    {
+class RegisterController{
+    public function index(){
         require_once __DIR__ . '/../views/auth/register.php';
     }
 
-    public function register()
-    {
+    public function register(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';

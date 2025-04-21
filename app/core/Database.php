@@ -5,12 +5,10 @@ namespace App\Core;
 use PDO;
 use PDOException;
 
-class Database
-{
+class Database{
     private static ?PDO $instance = null;
 
-    public static function getConnection(): PDO
-    {
+    public static function getConnection(): PDO{
         if(self::$instance === null){
             $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
             $dotenv->load();
