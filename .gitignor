@@ -1,0 +1,18 @@
+# Composer packages
+/vendor/
+
+# Környezeti beállítások
+.env
+
+# Log fileok, ideiglenes fileok
+*.log
+*.tmp
+*.bak
+
+# Editor fileok
+.idea/
+.vscode/
+
+# OS-specifikus
+.DS_Store
+Thumbs.db
