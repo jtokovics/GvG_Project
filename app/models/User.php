@@ -15,7 +15,7 @@ class User
         return $stmt->execute([
             ':username' => $username,
             ':email' => $email,
-            ':password' => password_hash($password, PASSWORD_DEFAULT),
+            ':password' => password_hash($password, PASSWORD_DEFAULT), //hash the password before storing in the database
         ]);
     }
 }
