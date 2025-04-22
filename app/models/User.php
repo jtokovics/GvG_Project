@@ -8,8 +8,8 @@ use PDO;
 class User{
     protected $db;
 
-    public function __construct($db){
-        $this->db = $db;
+    public function __construct($db = null){
+        $this->db = $db ?? Database::getConnection();
     }
 
     public static function create($username, $email, $password){

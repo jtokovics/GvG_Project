@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Core\Database;
 use App\Models\User;
 
 class LoginController{
@@ -11,21 +10,19 @@ class LoginController{
             $login = $_POST['login'];
             $password = $_POST['password'];
 
-            $db = Database::getConnection();
-            $userModel = new User($db);
-            $user = $userModel->findByUsernameOrEmail($login);
+            $user = (new User())->findByUsernameOrEmail($login);
 
             if($user && password_verify($password, $user['password'])){
                 session_start();
-                $_SESSION['user'] = $user['id'];
-
+                $_SESSION['user_id'] = $user['id'];
                 header("Location: /dashboard");
                 exit;
             }else{
-                echo "Invalid login credentials.";
+                $error = "Invalid login credentials.";
+                require_once __DIR__ . '/../views/auth/login.php';
             }
+        } else{
+            require_once "../views/auth/login.php";
         }
-
-        require_once "../views/auth/login.php";
     }
 }
