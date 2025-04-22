@@ -1,5 +1,5 @@
 # Composer packages
-/vendor/
+vendor/
 
 # Környezeti beállítások
 .env
