@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\User;
 
 class RegisterController{
-    public function index(){
+    public function load(){
         require_once __DIR__ . '/../views/auth/register.php';
     }
 
