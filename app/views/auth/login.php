@@ -6,4 +6,8 @@
     <input type="password" name="password" required>
 
     <button type="submit">Login</button>
+
+    <?php if(!empty($error)): ?>
+        <p style="color:red"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
 </form>

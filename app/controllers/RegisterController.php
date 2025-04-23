@@ -5,10 +5,6 @@ namespace App\Controllers;
 use App\Models\User;
 
 class RegisterController{
-    public function load(){
-        require_once __DIR__ . '/../views/auth/register.php';
-    }
-
     public function register(){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $username = $_POST['username'] ?? '';
@@ -20,6 +16,8 @@ class RegisterController{
             } else{
                 echo "Hiba történt a regisztráció során!";
             }
+        
+            require_once __DIR__ . '/../views/auth/register.php';
         }
     }
 }
