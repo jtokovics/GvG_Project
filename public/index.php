@@ -6,10 +6,10 @@ use App\Core\Router;
 
 $router = new Router();
 
-$router->get('/register', 'App\Controllers\RegisterController@register');
-$router->post('/register', 'App\Controllers\RegisterController@register');
+$router->get('/register', 'App\Controllers\RegisterController@load');
+$router->post('/register', 'App\Controllers\RegisterController@load');
 
-$router->get('/login', 'App\Controllers\LoginController@login');
-$router->post('/login', 'App\Controllers\LoginController@login');
+$router->get('/login', 'App\Controllers\LoginController@load');
+$router->post('/login', 'App\Controllers\LoginController@load');
 
 $router->run();
