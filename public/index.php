@@ -2,16 +2,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Controllers\RegisterController;
+use App\Core\Router;
 
-$uri = $_SERVER['REQUEST_URI'];
+$router = new Router();
 
-if($uri === '/register'){
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        (new RegisterController)->register();
-    } else{
-        (new RegisterController)->index();
-    }
-} else{
-    echo "404 - Nincs ilyen oldal.";
-}
+$router->get('/register', 'App\Controllers\RegisterController@register');
+$router->post('/register', 'App\Controllers\RegisterController@register');
+
+$router->get('/login', 'App\Controllers\LoginController@login');
+$router->post('/login', 'App\Controllers\LoginController@login');
+
+$router->run();
